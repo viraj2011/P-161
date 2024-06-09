@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Bowling Game</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="throw.js"></script>
+</head>
+<body>
+    <a-scene physics="debug: true">
+        <!-- Camera -->
+        <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
+
+        <!-- Bowling Alley -->
+        <a-plane position="0 0 -10" rotation="-90 0 0" width="20" height="20" color="#654321" static-body></a-plane>
+
+        <!-- Bowling Pins -->
+        <a-entity id="pins" position="0 0 -10">
+            <!-- Add your 3D models for bowling pins here -->
+            <a-entity obj-model="obj: #pin-obj; mtl: #pin-mtl" position="0 0 0"></a-entity> 
+        </a-entity>
+
+        <!-- Bowling Ball -->
+        <a-entity id="ball" geometry="primitive: sphere; radius: 0.1" material="color: #000" position="0 1 -5" dynamic-body throw></a-entity>
+    </a-scene>
+</body>
+</html>
